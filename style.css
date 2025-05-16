@@ -1,0 +1,848 @@
+/* ====== GLOBAL ====== */
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+/* ====== HEADER ====== */
+header {
+  background-color: #1c2a4d;
+  padding: 20px 0;
+  color: white;
+}
+
+.header-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-title {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 45px;
+  margin-right: 10px;
+}
+
+.brand {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+}
+
+/* ====== NAV ICONS DENGAN LABEL ====== */
+.nav-icon {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+}
+
+.nav-item {
+  text-align: center;
+}
+
+.nav-item a {
+  color: white;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.nav-item i {
+  font-size: 20px;
+  margin-bottom: 4px;
+}
+
+.nav-item span {
+  font-size: 12px;
+  color: #c0d6ff;
+}
+
+.nav-item a:hover {
+  color: #ffcc00;
+}
+
+.nav-item a:hover span {
+  color: #ffcc00;
+}
+
+/* ====== PROFILE SECTION ====== */
+.profile {
+  padding: 100px 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+  position: relative;
+  text-align: center;
+  font-size: 20px;
+  line-height: 1.6;
+}
+
+.profile::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+.profile .container {
+  position: relative;
+  z-index: 2;
+}
+
+.profile h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+/* ====== SECTION STYLES ====== */
+.menu,
+.bundling,
+.galeri {
+  padding: 60px 60px;
+  background-color: #f4f4f4;
+  text-align: center;
+}
+
+.menu h2,
+.bundling h2,
+.galeri h2 {
+  font-size: 32px;
+  color: #001f3f;
+  margin-bottom: 40px;
+}
+
+/* ====== MENU & BUNDLING CARDS ====== */
+.menu-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.menu-card {
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.07);
+  width: calc(33.333% - 20px);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.menu-card:hover {
+  transform: translateY(-5px);
+}
+
+.menu-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.menu-info {
+  padding: 15px;
+}
+
+.menu-info h3 {
+  margin: 0;
+  color: #001f3f;
+  font-size: 18px;
+}
+
+.menu-info .harga {
+  display: block;
+  margin-top: 8px;
+  color: #e9be10;
+  font-weight: bold;
+}
+
+.menu-deskripsi {
+  font-size: 13px;
+  color: #555;
+  max-height: 40px;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  margin-top: 10px;
+}
+
+.menu-deskripsi.expanded {
+  max-height: 300px; /* Bisa disesuaikan */
+}
+
+.toggle-deskripsi {
+  background: none;
+  border: none;
+  color: #007bff;
+  cursor: pointer;
+  font-size: 13px;
+  margin-top: 5px;
+  margin-bottom: 8px;
+  display: inline-block;
+}
+
+.toggle-deskripsi:hover {
+  text-decoration: underline;
+}
+
+/* ====== GALERI ====== */
+.galeri-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.galeri-card {
+  width: 220px;
+  transition: transform 0.3s;
+}
+
+.galeri-card:hover {
+  transform: scale(1.02);
+}
+
+.galeri-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.galeri-img-wrapper {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  width: 220px;
+  height: 200px;
+}
+
+.galeri-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.65);
+  color: #fff;
+  width: 100%;
+  padding: 10px;
+  font-size: 13px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.galeri-img-wrapper:hover .overlay {
+  opacity: 1;
+}
+
+/* ====== FOOTER ====== */
+footer {
+  background-color: #1c2a4d;
+  color: #c0d6ff;
+  text-align: center;
+  padding: 20px 0;
+  font-size: 14px;
+  margin-top: 40px;
+}
+
+/* =================== LOGIN PAGE =================== */
+
+/* Gambar background */
+.login-page {
+  position: relative;
+  z-index: 1;
+}
+
+.login-page::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("../img/bg-about.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  opacity: 0.6; /* Mengurangi opacity gambar latar */
+  z-index: -1; /* Pastikan gambar berada di belakang form */
+}
+
+.login-container {
+  max-width: 400px;
+  margin: 60px auto;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 1;
+}
+
+/* === Header (Logo dan Judul) === */
+.login-container .header {
+  background-color: #1c2a4d;
+  color: #fff;
+  text-align: center;
+  padding: 25px 20px;
+  border-radius: 10px 10px 0 0;
+  margin: -30px -30px 30px -30px;
+}
+
+.login-container .header img {
+  width: 100px;
+  margin-bottom: 10px;
+}
+
+.login-container .header h2 {
+  margin: 10px 0 5px;
+  font-size: 22px;
+}
+
+.login-container .header p {
+  font-size: 14px;
+  color: #cfd8e1;
+}
+
+/* === Form Input === */
+.login-container .form-group {
+  margin-bottom: 18px;
+}
+
+.login-container .form-group input {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #fdfdfd;
+  transition: border 0.3s;
+}
+
+.login-container .form-group input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* === Tombol Login dan Kembali === */
+.login-container button {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.login-container button[type="submit"] {
+  background-color: #1c2a4d;
+  color: #fff;
+  margin-top: 5px;
+}
+
+.login-container button[type="submit"]:hover {
+  background-color: #16223d;
+}
+
+.login-container .back-btn {
+  background-color: #e03835;
+  color: #fff;
+  margin-top: 12px;
+}
+
+.login-container .back-btn:hover {
+  background-color: #c12f2d;
+}
+
+/* === Error Message === */
+.login-container .error {
+  color: red;
+  text-align: center;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+/* =================== DASHBOARD PAGE =================== */
+
+/* === Sidebar === */
+.dashboard-sidebar {
+  width: 250px;
+  background-color: #1c2a4d; /* Darker shade */
+  color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  padding-top: 20px;
+  box-shadow: 4px 0 10px rgba(0, 0, 0, 0.2); /* Shadow effect */
+}
+
+.dashboard-sidebar .dashboard-sidebar-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.dashboard-sidebar .dashboard-sidebar-logo {
+  width: 100px;
+  margin-bottom: 10px;
+}
+
+.dashboard-sidebar h2 {
+  font-size: 24px;
+  color: #fff;
+  margin: 0;
+}
+
+.dashboard-sidebar-menu {
+  list-style: none;
+  padding: 0;
+}
+
+.dashboard-sidebar-menu li {
+  margin-bottom: 20px;
+}
+
+.dashboard-sidebar-menu li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 13px;
+  padding: 10px 20px;
+  display: block;
+  width: 70%; /* Membatasi lebar tombol */
+  margin: 0 auto; /* Menengahkan tombol */
+  transition: background-color 0.3s ease-in-out;
+  border-radius: 20px;
+  box-shadow: 0 7px 10px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-sidebar-menu li a:hover {
+  background-color: #ffcc00;
+}
+
+.dashboard-sidebar-menu li a i {
+  margin-right: 10px;
+}
+
+/* === Main Content (Dashboard) === */
+.dashboard-main-content {
+  margin-left: 250px;
+  padding: 20px;
+}
+
+/* === Header (Dashboard) === */
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  margin-top: 0px;
+}
+
+.dashboard-header-user {
+  display: flex;
+  align-items: center;
+  margin-right: 40px;
+}
+
+.dashboard-admin-avatar {
+  width: 70px !important;
+  height: 70px !important;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+  flex-shrink: 0;
+}
+
+.dashboard-header-info h1 {
+  font-size: 32px;
+  color: #ffffff;
+  margin-left: 40px; /* Memberi jarak antara h1 dan p */
+}
+
+.dashboard-header-info p {
+  font-size: 16px;
+  color: #ffffff;
+  margin-left: 40px; /* Memberi jarak antara p dan elemen lainnya */
+}
+
+.dashboard-header-user {
+  display: flex;
+  align-items: center;
+}
+
+.dashboard-admin-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+  background-image: url("../img/me.jpg");
+  background-size: cover; /* Foto admin akan ter-cover dengan baik */
+}
+
+.dashboard-admin-name {
+  font-size: 18px;
+  color: #333;
+}
+
+/* === Dashboard Stats === */
+.dashboard-stats {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 40px;
+}
+
+.dashboard-stats-box {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 30%;
+}
+
+.dashboard-stats-box h3 {
+  font-size: 20px;
+  color: #333;
+}
+
+.dashboard-stats-box p {
+  font-size: 24px;
+  color: #1c2a4d;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+/* === Footer (Dashboard) === */
+.dashboard-footer {
+  display: none; /* Footer dihapus */
+}
+
+/* =================== DASHBOARD PAGE =================== */
+/* =================== Konten Menu =================== */
+
+.form-menu {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.form-menu label {
+  font-weight: 500;
+  color: #333;
+  margin-bottom: -8px; /* Sesuaikan dengan form lainnya */
+}
+
+.form-menu input[type="text"],
+.form-menu input[type="number"],
+.form-menu textarea,
+.form-menu select,
+.form-menu input[type="file"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+.form-menu textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.form-menu select {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 1em;
+  padding-right: 30px;
+}
+
+.form-menu button {
+  background-color: #4CAF50; /* Warna bisa disesuaikan */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  width: fit-content;
+  padding: 10px 20px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s;
+}
+
+.form-menu button:hover {
+  background-color: #45a049; /* Warna hover bisa disesuaikan */
+}
+
+/* Style khusus untuk file input agar konsisten */
+.form-menu .file-input-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+.form-menu .file-input-wrapper input[type="file"] {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.form-menu .file-input-label {
+  display: block;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  text-align: center;
+  cursor: pointer;
+}
+
+.form-menu .file-input-label:hover {
+  background-color: #f0f0f0;
+}
+
+/* ===== DROPDOWN KATEGORI YANG KONSISTEN ===== */
+.form-menu select {
+    width: 100%; /* Menggunakan lebar penuh seperti input lain */
+    max-width: 100%; /* Menghilangkan batas maksimum sebelumnya */
+    padding: 10px 12px; /* Padding yang sama dengan input lain */
+    border: 1px solid #ddd; /* Warna border yang sama */
+    border-radius: 6px; /* Sudut yang sama */
+    background-color: #fff;
+    font-size: 14px;
+    font-family: inherit; /* Menggunakan font yang sama dengan parent */
+    color: #333;
+    box-sizing: border-box;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    height: 40px; /* Tinggi yang sama dengan input text */
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23555' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 12px;
+    margin-bottom: 15px; /* Spacing bawah yang sama */
+}
+
+/* Style saat focus */
+.form-menu select:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+/* Style untuk opsi */
+.form-menu select option {
+    padding: 8px 12px; /* Padding nyaman untuk opsi */
+    color: #333;
+}
+
+/* ================ Konten Grafik ================ */
+.chart-card {
+  position: relative;
+  height: 550px;
+  margin-bottom: 30px;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.chart-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+
+
+.chart-card.chart-small {
+  max-width: 1200px;
+  height: 450px; /
+} 
+
+.chart-card h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #333;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.chart-x-axis-label {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  bottom: -25px;
+  font-size: 14px;
+  color: #666;
+}
+
+/* Penyesuaian khusus untuk setiap grafik */
+#grafikTriwulan-container {
+  height: calc(100% - 40px);
+  padding-top: 10px;
+}
+
+#pieKategoriProduk-container {
+  height: calc(100% - 40px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .chart-card {
+    height: auto;
+    min-height: 400px;
+  }
+  
+  #grafikTriwulan-container {
+    height: 350px;
+  }
+  
+  #pieKategoriProduk-container {
+    height: 250px;
+  }
+}
+
+/* Tooltip styling */
+.chartjs-tooltip {
+  font-family: 'Arial', sans-serif;
+  background: rgba(0, 0, 0, 0.8) !important;
+  border-radius: 4px !important;
+  padding: 10px !important;
+  color: white !important;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.chartjs-tooltip-key {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin-right: 5px;
+}
+
+/* ====================== Konten Predict ====================*/
+/* Prediction Card */
+.prediction-card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+}
+
+.card-header {
+  padding: 15px 20px;
+  border-bottom: 1px solid #eee;
+  background: #f8f9fa;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.btn {
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: #4e73df;
+  color: white;
+  border: none;
+}
+
+.alert {
+  padding: 15px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+.alert-info {
+  background-color: #d1ecf1;
+  color: #0c5460;
+}
+
+.alert-success {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.alert-warning {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.alert-danger {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.mt-4 {
+  margin-top: 1.5rem;
+}
+
+/* Style untuk badge kategori */
+.badge {
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.bg-warning { background-color: #ffc107; color: #000; }
+.bg-info { background-color: #17a2b8; color: #fff; }
+.bg-success { background-color: #28a745; color: #fff; }
+.bg-secondary { background-color: #6c757d; color: #fff; }
